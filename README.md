@@ -1,4 +1,4 @@
-frontend-school
+Frontend School
 ===============
 
 Frontend School
