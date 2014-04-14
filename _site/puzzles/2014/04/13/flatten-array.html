@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Flatten Array</title>
+        <meta name="viewport" content="width=device-width">
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/">Frontend School</a></h1>
+            <a class="extra" href="/">home</a>
+          </div>
+
+          <h2>Flatten Array</h2>
+<p class="meta">13 Apr 2014</p>
+
+<ul>
+
+      <li>JavaScript</li>
+
+      <li>Algorithm</li>
+
+      <li>Utility</li>
+
+</ul>
+
+<p class="meta">beginner</p>
+
+<div class="post">
+<h1 id="puzzle">Puzzle</h1>
+<blockquote>
+  <p>In JavaScript, write a function <strong><code>array_flatten</code></strong> that takes an <code>Array</code> as input and return a flattened <code>Array</code> of all elements as output.</p>
+</blockquote>
+
+<h1 id="examples">Examples</h1>
+
+<div class="highlight"><pre><code class="javascript"><span class="c1">// input array to flatten</span>
+<span class="o">&gt;</span> <span class="kd">var</span> <span class="nx">input</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="p">[</span><span class="mi">4</span><span class="p">]],</span> <span class="p">{</span><span class="nx">a</span><span class="o">:</span> <span class="mi">5</span><span class="p">},</span> <span class="p">[</span><span class="s2">&quot;John&quot;</span><span class="p">,</span> <span class="p">[{</span><span class="nx">b</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;test&quot;</span><span class="p">]}]]];</span>
+<span class="o">&gt;</span> <span class="nx">array_flatten</span><span class="p">(</span><span class="nx">input</span><span class="p">);</span>
+
+<span class="c1">// output</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="p">{</span><span class="nx">a</span><span class="o">:</span> <span class="mi">5</span><span class="p">},</span> <span class="s2">&quot;John&quot;</span><span class="p">,</span> <span class="p">{</span><span class="nx">b</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;test&quot;</span><span class="p">]}];</span>
+</code></pre></div>
+
+<h1 id="solution">Solution</h1>
+
+<h2 id="how-it-works">How It Works</h2>
+<p>This solution uses recursion to complete the following steps:</p>
+
+<ol>
+  <li>Create an empty <code>output</code> array to return.</li>
+  <li>Loop through the <code>input</code> array elements.</li>
+  <li>Check the type of the current <code>element</code> in the loop.
+    <ul>
+      <li>If not an array <code>→</code> Add element to <code>output</code>.</li>
+      <li>If an array <code>→</code>
+        <ul>
+          <li>Recursively pass element to self to get <code>recursive_output</code>.</li>
+          <li>Loop through <code>recursive_output</code> elements and add each to <code>output</code>.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Return <code>output</code>.</li>
+</ol>
+
+<h2 id="code">Code</h2>
+
+<div class="highlight"><pre><code class="javascript"><span class="cm">/**</span>
+<span class="cm">*</span>
+<span class="cm">* Flattens an array</span>
+<span class="cm">*</span>
+<span class="cm">* @param {array} Input array</span>
+<span class="cm">* @return {array} Flattened array</span>
+<span class="cm">*</span>
+<span class="cm">**/</span>
+<span class="kd">function</span> <span class="nx">array_flatten</span><span class="p">(</span><span class="nx">input</span><span class="p">)</span> <span class="p">{</span>
+
+  <span class="c1">// the output array we will return</span>
+  <span class="kd">var</span> <span class="nx">output</span> <span class="o">=</span> <span class="p">[];</span>
+  
+  <span class="c1">// iterate over input</span>
+  <span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">input</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    
+    <span class="c1">// check if element is an array or not</span>
+    <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="nb">Array</span><span class="p">.</span><span class="nx">isArray</span><span class="p">(</span><span class="nx">input</span><span class="p">[</span><span class="nx">i</span><span class="p">]))</span> <span class="p">{</span>
+
+      <span class="c1">// element is not an array - push to output array</span>
+      <span class="nx">output</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">input</span><span class="p">[</span><span class="nx">i</span><span class="p">]);</span>
+
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+
+      <span class="c1">// element is an array - call array_flattten on element recursively</span>
+      <span class="kd">var</span> <span class="nx">recursive_output</span> <span class="o">=</span> <span class="nx">array_flatten</span><span class="p">(</span><span class="nx">input</span><span class="p">[</span><span class="nx">i</span><span class="p">]);</span>
+      
+      <span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">o</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">o</span> <span class="o">&lt;</span> <span class="nx">recursive_output</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">o</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        
+        <span class="nx">output</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">recursive_output</span><span class="p">[</span><span class="nx">o</span><span class="p">]);</span>
+        
+      <span class="p">};</span>
+      
+    <span class="p">};</span>
+    
+  <span class="p">};</span>
+  
+  <span class="c1">// return flattened array</span>
+  <span class="k">return</span> <span class="nx">output</span><span class="p">;</span>
+  
+<span class="p">};</span>
+</code></pre></div>
+
+<h2 id="libraries">Libraries</h2>
+<p>The following libraries have functions that perform this function:</p>
+
+<ul>
+  <li><a href="http://lodash.com/docs#flatten">Lo-Dash’s flatten function</a> - <code>_.flatten</code> flattens a nested array. In addition you can choose to only flatten the first level or pass elements to a callback before flattening.</li>
+</ul>
+
+
+</div>
+
+
+          <div class="footer">
+            <div class="contact">
+              <p>
+                GitHub<br />
+                Twitter<br />
+                dhruv@dhruvbhatia.com
+              </p>
+            </div>
+            <div class="contact">
+              <p>
+                <a href="https://github.com/dhruvbhatia">github.com/dhruvbhatia</a><br />
+                <a href="https://twitter.com/dhruv_au">twitter.com/dhruv_au</a><br />
+              </p>
+            </div>
+          </div>
+        </div>
+
+    </body>
+</html>

@@ -1,13 +1,19 @@
 ---
 layout: default
-title: Your New Jekyll Site
+title: Frontend School - Home
 ---
 
 <div id="home">
-  <h1>Blog Posts</h1>
+  <h1>Welcome</h1>
+
+  <p>Frontend School is designed to prepare developers with </p>
+
+
+
+  <h1>Puzzles</h1>
   <ul class="posts">
-    {% for post in site.posts %}
-      <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></li>
+    {% for puzzle in site.posts %}
+      <li><span>{{ puzzle.date | date_to_string }}</span> &raquo; <a href="{{ site.baseurl }}{{ puzzle.url }}">{{ puzzle.title }}</a></li>
     {% endfor %}
   </ul>
 </div>
