@@ -1,4 +1,4 @@
 name: Frontend School
 markdown: kramdown
 pygments: true
-baseurl: 
+baseurl: /frontend-school
