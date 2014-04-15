@@ -8,7 +8,8 @@ module.exports = function(grunt) {
           loadPath: 'bower_components/foundation/scss'
         },
         files: {
-          'assets/css/app.min.css': 'assets/src/app.scss'
+          'assets/css/app.min.css': 'assets/src/app.scss',
+          'assets/css/prismjs.min.css': 'bower_components/prismjs/prism.css'
         }
       }
     },
@@ -19,16 +20,16 @@ module.exports = function(grunt) {
         }
       }
     },
-    copy: {
-      prism: {
-        files: [{
-          expand: true,
-          cwd: 'bower_components/prismjs/',
-          src: ['*.css'],
-          dest: 'assets/src/prismjs'
-        }]
-      }
-    },
+    // copy: {
+    //   bootstrap: {
+    //     files: [{
+    //       expand: true,
+    //       cwd: 'bower_components/foundation/scss/',
+    //       src: ['**'],
+    //       dest: 'assets/_scss/'
+    //     }]
+    //   }
+    // },
     exec: {
       build: {
         cmd: 'jekyll build'
@@ -44,10 +45,10 @@ module.exports = function(grunt) {
 
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-sass');
-  grunt.loadNpmTasks('grunt-contrib-copy');
+  // grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-exec');
 
-  grunt.registerTask('default', ['sass', 'uglify', 'copy', 'exec:build']);
+  grunt.registerTask('default', ['sass', 'uglify', 'exec:build']);
   grunt.registerTask('deploy', ['default', 'exec:deploy']);
   grunt.registerTask('serve', ['sass', 'uglify', 'exec:serve']);
 
