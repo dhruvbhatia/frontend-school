@@ -10,12 +10,12 @@
         <link rel="stylesheet" href="/css/syntax.css">
 
         <!-- Custom CSS -->
-        <link rel="stylesheet" href="/css/main.css">
+        <link rel="stylesheet" href="/assets/css/app.min.css">
 
     </head>
     <body>
 
-        <div class="site">
+        <div class="row">
           <div class="header">
             <h1 class="title"><a href="/">Frontend School</a></h1>
             <a class="extra" href="/">home</a>
@@ -44,13 +44,13 @@
 
 <h1 id="examples">Examples</h1>
 
-<div class="highlight"><pre><code class="javascript"><span class="c1">// input array to flatten</span>
-<span class="o">&gt;</span> <span class="kd">var</span> <span class="nx">input</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="p">[</span><span class="mi">4</span><span class="p">]],</span> <span class="p">{</span><span class="nx">a</span><span class="o">:</span> <span class="mi">5</span><span class="p">},</span> <span class="p">[</span><span class="s2">&quot;John&quot;</span><span class="p">,</span> <span class="p">[{</span><span class="nx">b</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;test&quot;</span><span class="p">]}]]];</span>
-<span class="o">&gt;</span> <span class="nx">array_flatten</span><span class="p">(</span><span class="nx">input</span><span class="p">);</span>
+<pre><code class="language-javascript">// input array to flatten
+&gt; var input = [1, [2, 3, [4]], {a: 5}, ["John", [{b: ["test"]}]]];
+&gt; array_flatten(input);
 
-<span class="c1">// output</span>
-<span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="p">{</span><span class="nx">a</span><span class="o">:</span> <span class="mi">5</span><span class="p">},</span> <span class="s2">&quot;John&quot;</span><span class="p">,</span> <span class="p">{</span><span class="nx">b</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;test&quot;</span><span class="p">]}];</span>
-</code></pre></div>
+// output
+[1, 2, 3, 4, {a: 5}, "John", {b: ["test"]}];
+</code></pre>
 
 <h1 id="solution">Solution</h1>
 
@@ -76,48 +76,48 @@
 
 <h2 id="code">Code</h2>
 
-<div class="highlight"><pre><code class="javascript"><span class="cm">/**</span>
-<span class="cm">*</span>
-<span class="cm">* Flattens an array</span>
-<span class="cm">*</span>
-<span class="cm">* @param {array} Input array</span>
-<span class="cm">* @return {array} Flattened array</span>
-<span class="cm">*</span>
-<span class="cm">**/</span>
-<span class="kd">function</span> <span class="nx">array_flatten</span><span class="p">(</span><span class="nx">input</span><span class="p">)</span> <span class="p">{</span>
+<pre><code class="language-javascript">/**
+*
+* Flattens an array
+*
+* @param {array} Input array
+* @return {array} Flattened array
+*
+**/
+function array_flatten(input) {
 
-  <span class="c1">// the output array we will return</span>
-  <span class="kd">var</span> <span class="nx">output</span> <span class="o">=</span> <span class="p">[];</span>
+  // the output array we will return
+  var output = [];
   
-  <span class="c1">// iterate over input</span>
-  <span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">input</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+  // iterate over input
+  for(var i = 0; i &lt; input.length; i++) {
     
-    <span class="c1">// check if element is an array or not</span>
-    <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="nb">Array</span><span class="p">.</span><span class="nx">isArray</span><span class="p">(</span><span class="nx">input</span><span class="p">[</span><span class="nx">i</span><span class="p">]))</span> <span class="p">{</span>
+    // check if element is an array or not
+    if(!Array.isArray(input[i])) {
 
-      <span class="c1">// element is not an array - push to output array</span>
-      <span class="nx">output</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">input</span><span class="p">[</span><span class="nx">i</span><span class="p">]);</span>
+      // element is not an array - push to output array
+      output.push(input[i]);
 
-    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    } else {
 
-      <span class="c1">// element is an array - call array_flattten on element recursively</span>
-      <span class="kd">var</span> <span class="nx">recursive_output</span> <span class="o">=</span> <span class="nx">array_flatten</span><span class="p">(</span><span class="nx">input</span><span class="p">[</span><span class="nx">i</span><span class="p">]);</span>
+      // element is an array - call array_flattten on element recursively
+      var recursive_output = array_flatten(input[i]);
       
-      <span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">o</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">o</span> <span class="o">&lt;</span> <span class="nx">recursive_output</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">o</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+      for(var o = 0; o &lt; recursive_output.length; o++) {
         
-        <span class="nx">output</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">recursive_output</span><span class="p">[</span><span class="nx">o</span><span class="p">]);</span>
+        output.push(recursive_output[o]);
         
-      <span class="p">};</span>
+      };
       
-    <span class="p">};</span>
+    };
     
-  <span class="p">};</span>
+  };
   
-  <span class="c1">// return flattened array</span>
-  <span class="k">return</span> <span class="nx">output</span><span class="p">;</span>
+  // return flattened array
+  return output;
   
-<span class="p">};</span>
-</code></pre></div>
+};
+</code></pre>
 
 <h2 id="libraries">Libraries</h2>
 <p>The following libraries have functions that perform this function:</p>
@@ -147,5 +147,6 @@
           </div>
         </div>
 
+        <script type="text/javascript" src="/assets/js/app.min.js"></script>
     </body>
 </html>

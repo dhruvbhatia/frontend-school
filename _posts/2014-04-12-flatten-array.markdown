@@ -14,16 +14,14 @@ Puzzle
 Examples
 ===
 
-{% highlight javascript %}
+~~~ javascript
 // input array to flatten
 > var input = [1, [2, 3, [4]], {a: 5}, ["John", [{b: ["test"]}]]];
 > array_flatten(input);
 
 // output
 [1, 2, 3, 4, {a: 5}, "John", {b: ["test"]}];
-
-
-{% endhighlight %}
+~~~
 
 Solution
 ===
@@ -45,7 +43,7 @@ This solution uses recursion to complete the following steps:
 Code
 ---
 
-{% highlight javascript %}
+~~~ javascript
 /**
 *
 * Flattens an array
@@ -87,8 +85,7 @@ function array_flatten(input) {
   return output;
   
 };
-
-{% endhighlight %}
+~~~
 
 Libraries
 ---

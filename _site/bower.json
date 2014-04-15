@@ -1,0 +1,8 @@
+{
+  "name" : "frontend-school",
+  "version": "0.1",
+  "dependencies" : {
+    "foundation" : "latest",
+    "prismjs" : "latest"
+  }
+}
