@@ -1,7 +1,7 @@
-window.onload = function() {
+$( document ).ready(function() {
 
   console.log("loaded");
 
-  // hljs.initHighlightingOnLoad();
-  
-};
+  $( document ).foundation();
+
+});
