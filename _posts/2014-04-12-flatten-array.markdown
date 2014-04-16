@@ -3,17 +3,14 @@ layout: puzzle
 title:  "Flatten Array"
 date:   2014-04-12 19:34:17
 categories: puzzles
-tags: JavaScript Algorithm Utility
+tags: [JavaScript, Algorithm, Utility]
 difficulty: beginner
 ---
 
-Puzzle
-===
+## Puzzle
 > In JavaScript, write a function **`array_flatten`** that takes an `Array` as input and return a flattened `Array` of all elements as output.
 
-Examples
-===
-
+## Examples
 ~~~ javascript
 // input array to flatten
 > var input = [1, [2, 3, [4]], {a: 5}, ["John", [{b: ["test"]}]]];
@@ -23,11 +20,9 @@ Examples
 [1, 2, 3, 4, {a: 5}, "John", {b: ["test"]}];
 ~~~
 
-Solution
-===
+## Solution
 
-How It Works
----
+### How It Works
 This solution uses recursion to complete the following steps:
 
 1. Create an empty `output` array to return.
@@ -40,9 +35,7 @@ This solution uses recursion to complete the following steps:
 4. Return `output`.
 
 
-Code
----
-
+### Code
 ~~~ javascript
 /**
 *
@@ -87,8 +80,7 @@ function array_flatten(input) {
 };
 ~~~
 
-Libraries
----
+## Libraries
 The following libraries have functions that perform this function:
 
 * [Lo-Dash's flatten function][lodash] - `_.flatten` flattens a nested array. In addition you can choose to only flatten the first level or pass elements to a callback before flattening.

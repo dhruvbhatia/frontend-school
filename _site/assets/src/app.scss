@@ -2,3 +2,27 @@
 "normalize",
 "foundation",
 "prismjs.min.css";
+
+.tag {
+  @include label(
+    // This options sets label padding
+    $padding:7px 16px 9px,
+    // This option sets label text-size
+    $text-size:14px,
+    // This option sets label background-color
+    $bg:#2ba6cb,
+    // This option sets the radius of the label
+    $radius:4px
+  );
+}
+
+.tag-count {
+  opacity: 0.70;
+};
+
+#footer {
+  height: 200px;
+  background-color: #f5f2f0;
+  padding-top: 20px;
+  margin-top: 20px;
+}
