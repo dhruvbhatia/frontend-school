@@ -61,7 +61,7 @@ module.exports = function(grunt) {
   grunt.registerTask('deploy', 'test', function(message) {
     grunt.task.run([
       'default',
-      'exec:deploy:' + message
+      'exec:deploy:"' + message + '"'
     ]);
   });
 
