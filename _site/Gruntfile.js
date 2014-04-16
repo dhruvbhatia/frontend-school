@@ -37,8 +37,13 @@ module.exports = function(grunt) {
       serve: {
         cmd: 'jekyll serve --watch'
       },
+      local: {
+        cmd: 'jekyll serve --watch --baseurl ""'
+      },
       deploy: {
-        cmd: 'rsync --progress -a --delete -e "ssh -q" _site/ myuser@host:mydir/'
+        cmd: function(message) {
+          return 'git add . && git commit -m ' + message + ' && git push'
+        }
       }
     }
   });
@@ -50,6 +55,19 @@ module.exports = function(grunt) {
 
   grunt.registerTask('default', ['sass', 'uglify', 'exec:build']);
   grunt.registerTask('deploy', ['default', 'exec:deploy']);
+
+
+
+  grunt.registerTask('deploy', 'test', function(message) {
+    grunt.task.run([
+      'default',
+      'exec:deploy:' + message
+    ]);
+  });
+
+
+
   grunt.registerTask('serve', ['sass', 'uglify', 'exec:serve']);
+  grunt.registerTask('local', ['sass', 'uglify', 'exec:local']);
 
 };
