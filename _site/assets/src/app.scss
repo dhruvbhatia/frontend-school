@@ -14,15 +14,55 @@
     // This option sets the radius of the label
     $radius:4px
   );
-}
+};
+
+.difficulty-easy {
+  @include label(
+    // This options sets label padding
+    $padding:7px 16px 9px,
+    // This option sets label text-size
+    $text-size:14px,
+    // This option sets label background-color
+    $bg:#43ac6a,
+    // This option sets the radius of the label
+    $radius:4px
+  );
+};
+
+.difficulty-intermediate {
+  @include label(
+    // This options sets label padding
+    $padding:7px 16px 9px,
+    // This option sets label text-size
+    $text-size:14px,
+    // This option sets label background-color
+    $bg:#FF9900,
+    // This option sets the radius of the label
+    $radius:4px
+  );
+};
+
+.difficulty-difficult {
+  @include label(
+    // This options sets label padding
+    $padding:7px 16px 9px,
+    // This option sets label text-size
+    $text-size:14px,
+    // This option sets label background-color
+    $bg:#f04124,
+    // This option sets the radius of the label
+    $radius:4px
+  );
+};
 
 .tag-count {
   opacity: 0.70;
 };
 
 #footer {
-  height: 200px;
-  background-color: #f5f2f0;
-  padding-top: 20px;
+  height: 45px;
+  line-height: 45px;
+  background-color: #333;
+  color: #fff;
   margin-top: 20px;
 }

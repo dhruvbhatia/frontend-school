@@ -2,17 +2,22 @@
 layout: default
 ---
 <h1>{{ page.title }}</h1>
-<p class="meta">{{ page.date | date_to_string }}</p>
+<h3 class="subheader">{{ page.short_description }}</h3>
+<hr>
+<div class="tags row">
 
+  <div class="small-6 large-6 columns">
+    {% for tag in page.tags %}
+    <a href="{{ site.baseurl }}/tags.html#{{ tag | cgi_escape }}"><span class="tag">{{ tag }}</span></a>
+    {% endfor %}
+  </div>
+  <div class="small-6 large-6 columns text-right">
+    <a href="{{ site.baseurl }}/difficulty.html#{{ page.difficulty | cgi_escape }}"><span class="difficulty-{{ page.difficulty | downcase }}">{{ page.difficulty }}</span></a>
+  </div>
 
-<div class="tags">
-{% for tag in page.tags %}
-<a href="{{ site.baseurl }}/tags.html#{{ tag | cgi_escape }}"><span class="tag">{{ tag }}</span></a>
-{% endfor %}
 </div>
-
-<p class="meta">{{ page.difficulty }}</p>
+<hr>
 
 <div class="post">
-{{ content }}
+  {{ content }}
 </div>

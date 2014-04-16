@@ -54,18 +54,13 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-exec');
 
   grunt.registerTask('default', ['sass', 'uglify', 'exec:build']);
-  grunt.registerTask('deploy', ['default', 'exec:deploy']);
 
-
-
-  grunt.registerTask('deploy', 'test', function(message) {
+  grunt.registerTask('deploy', 'Deploys to GH Pages', function(message) {
     grunt.task.run([
       'default',
       'exec:deploy:"' + message + '"'
     ]);
   });
-
-
 
   grunt.registerTask('serve', ['sass', 'uglify', 'exec:serve']);
   grunt.registerTask('local', ['sass', 'uglify', 'exec:local']);

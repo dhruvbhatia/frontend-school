@@ -3,17 +3,33 @@ layout: default
 title: Frontend School - Home
 ---
 
-<div id="home">
-  <h1>Welcome</h1>
+<div id="intro-text">
+  <h1 class="text-center">Frontend Developer interviews <strong>are challenging.</strong></h1>
 
-  <p>Frontend School is designed to prepare developers with </p>
+  <p>Frontend School is an open-source resource that provides an assortment of <strong>common frontend interview puzzles</strong>, along with their corresponding answers to help you <strong>nail that interview.</strong></p>
+
+  <h2>How It Works</h2>
+  <p>TODO</p>
 
 
+</div>
+<hr>
 
-  <h1>Puzzles</h1>
-  <ul class="posts">
-    {% for puzzle in site.posts %}
-      <li><span>{{ puzzle.date | date_to_string }}</span> &raquo; <a href="{{ site.baseurl }}{{ puzzle.url }}">{{ puzzle.title }}</a></li>
-    {% endfor %}
-  </ul>
+<div id="intro-puzzles" class="row">
+  <div class="small-6 large-6 columns">
+  <h2>Recently Added Puzzles</h2>
+
+      {% for puzzle in site.posts %}
+      <a href="{{ site.baseurl }}{{ puzzle.url }}">
+      <div class="panel">
+      <h3>{{ puzzle.title }}</h3>
+      <span class="subheader">{{ puzzle.short_description }}</span>
+      </div>
+      </a>
+      {% endfor %}
+
+  </div>
+  <div class="small-6 large-6 columns">
+    <h2>Top Puzzles</h2>
+  </div>
 </div>

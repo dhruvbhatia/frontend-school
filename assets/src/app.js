@@ -1,7 +1,9 @@
-$( document ).ready(function() {
+window.onload = function() {
 
-  console.log("loaded");
-
+  // initiate foundation
   $( document ).foundation();
 
-});
+  // register solution js functions so users can use them in chrome dev tools/firebug
+  $.globalEval($('#solution').nextAll('.language-javascript').text());
+
+};

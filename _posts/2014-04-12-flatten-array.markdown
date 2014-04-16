@@ -4,7 +4,8 @@ title:  "Flatten Array"
 date:   2014-04-12 19:34:17
 categories: puzzles
 tags: [JavaScript, Algorithm, Utility]
-difficulty: beginner
+difficulty: Intermediate
+short_description: Write a function that flattens an array.
 ---
 
 ## Puzzle
@@ -12,13 +13,15 @@ difficulty: beginner
 
 ## Examples
 ~~~ javascript
-// input array to flatten
+// INPUT
 > var input = [1, [2, 3, [4]], {a: 5}, ["John", [{b: ["test"]}]]];
 > array_flatten(input);
 
-// output
+// OUTPUT
 [1, 2, 3, 4, {a: 5}, "John", {b: ["test"]}];
 ~~~
+
+<a name="solution"></a>
 
 ## Solution
 
