@@ -13,7 +13,7 @@ title: Frontend School - Home
   <h1>Puzzles</h1>
   <ul class="posts">
     {% for puzzle in site.posts %}
-      <li><span>{{ puzzle.date | date_to_string }}</span> &raquo; <a href="{{ site.baseurl }}{{ puzzle.url }}">{{ puzzle.title }}</a></li>
+      <li><span>{{ puzzle.date | date_to_string }}</span> &raquo; <a href="{{ puzzle.url }}">{{ puzzle.title }}</a></li>
     {% endfor %}
   </ul>
 </div>
