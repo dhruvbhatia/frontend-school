@@ -21,3 +21,10 @@ layout: default
 <div class="post">
   {{ content }}
 </div>
+<hr>
+<div class="contributors">
+<h2>Contributors</h2>
+  {% for contributor in page.github_contributors %}
+  <a href="http://github.com/{{contributor}}" target="blank">{{ contributor }}</a>{% unless forloop.last %}, {% endunless %}
+  {% endfor %}
+</div>
