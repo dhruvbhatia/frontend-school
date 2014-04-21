@@ -7,8 +7,12 @@ layout: default
 <div class="tags row">
 
   <div class="small-6 large-6 columns">
+    {% for language in page.categories %}
+    <a href="{{ site.baseurl }}/languages.html#{{ language | cgi_escape }}"><span class="language">{{ language }}</span></a>
+    {% endfor %}
+
     {% for tag in page.tags %}
-    <a href="{{ site.baseurl }}/tags.html#{{ tag | cgi_escape }}"><span class="tag">{{ tag }}</span></a>
+    <a href="{{ site.baseurl }}/tags.html#{{ tag | cgi_escape }}"><span class="tag secondary">{{ tag }}</span></a>
     {% endfor %}
   </div>
   <div class="small-6 large-6 columns text-right">

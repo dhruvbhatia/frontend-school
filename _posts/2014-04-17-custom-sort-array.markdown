@@ -2,8 +2,8 @@
 layout: puzzle
 title:  "Custom Sort Array"
 date:   2014-04-17
-categories: puzzles
-tags: [JavaScript, Index, Array, Sorting]
+categories: [JavaScript]
+tags: [Index, Array, Sorting]
 difficulty: Easy
 short_description: Write a function that rearranges an array based on a new index sequence.
 github_contributors: [dhruvbhatia]
@@ -22,8 +22,6 @@ github_contributors: [dhruvbhatia]
 // OUTPUT
 ["cat", "rat", "dog"];
 ~~~
-
-<a name="solution"></a>
 
 ## Solution
 

@@ -2,8 +2,8 @@
 layout: puzzle
 title:  "Flatten Array"
 date:   2014-04-12
-categories: puzzles
-tags: [JavaScript, Flatten, Array, Utility]
+categories: [JavaScript]
+tags: [Flatten, Array, Utility]
 difficulty: Intermediate
 short_description: Write a function that flattens an array.
 github_contributors: [dhruvbhatia]
@@ -21,8 +21,6 @@ github_contributors: [dhruvbhatia]
 // OUTPUT
 [1, 2, 3, 4, {a: 5}, "John", {b: ["test"]}];
 ~~~
-
-<a name="solution"></a>
 
 ## Solution
 

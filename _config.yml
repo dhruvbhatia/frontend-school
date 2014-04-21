@@ -2,3 +2,4 @@ name: Frontend School
 markdown: kramdown
 pygments: false
 baseurl: /frontend-school
+permalink: /:year/:month/:day/:title.html

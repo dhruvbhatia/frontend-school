@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Flatten Array</title>
+
+  <!-- syntax highlighting CSS -->
+  <link rel="stylesheet" href="/frontend-school/css/syntax.css">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/frontend-school/assets/css/app.min.css">
+
+</head>
+<body>
+
+  <div class="header">
+
+    <nav class="top-bar" data-topbar>
+      <ul class="title-area">
+        <li class="name">
+          <h1><a href="/frontend-school">Frontend School</a></h1>
+        </li>
+        <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
+      </ul>
+
+      <section class="top-bar-section">
+        <!-- Right Nav Section -->
+        <ul class="right">
+        </ul>
+
+        <!-- Left Nav Section -->
+        <ul class="left">
+                  <li class="has-dropdown">
+            <a href="#">Puzzles</a>
+            <ul class="dropdown">
+              <li><a href="/frontend-school/languages.html">By Language</a></li>
+              <li><a href="/frontend-school/tags.html">By Tag</a></li>
+            </ul>
+          </li>
+          <li class="active"><a href="/frontend-school/contribute.html">Contribute via GitHub</a></li>
+        </ul>
+      </section>
+    </nav>
+
+  </div>
+
+
+  <div class="content">
+    <div class="row">
+
+      <h1>Flatten Array</h1>
+<h3 class="subheader">Write a function that flattens an array.</h3>
+<hr>
+<div class="tags row">
+
+  <div class="small-6 large-6 columns">
+    
+    <a href="/frontend-school/languages.html#javascript"><span class="language">javascript</span></a>
+    
+
+    
+    <a href="/frontend-school/tags.html#Flatten"><span class="tag secondary">Flatten</span></a>
+    
+    <a href="/frontend-school/tags.html#Array"><span class="tag secondary">Array</span></a>
+    
+    <a href="/frontend-school/tags.html#Utility"><span class="tag secondary">Utility</span></a>
+    
+  </div>
+  <div class="small-6 large-6 columns text-right">
+    <a href="/frontend-school/difficulty.html#Intermediate"><span class="difficulty-intermediate">Intermediate</span></a>
+  </div>
+
+</div>
+<hr>
+
+<div class="post">
+  <h2 id="puzzle">Puzzle</h2>
+<blockquote>
+  <p>Write a function <strong><code>array_flatten</code></strong> that takes a <code>contents</code> array and return a flattened array of all elements as output.</p>
+</blockquote>
+
+<h2 id="examples">Examples</h2>
+<pre><code class="language-javascript">// INPUT
+&gt; var contents = [1, [2, 3, [4]], {a: 5}, ["John", [{b: ["test"]}]]];
+&gt; array_flatten(contents);
+
+// OUTPUT
+[1, 2, 3, 4, {a: 5}, "John", {b: ["test"]}];
+</code></pre>
+
+<h2 id="solution">Solution</h2>
+
+<h3 id="how-it-works">How It Works</h3>
+<p>This solution uses recursion to complete the following steps:</p>
+
+<ol>
+  <li>Create an empty <code>output</code> array to return.</li>
+  <li>Loop through the <code>contents</code> array elements.
+    <ul>
+      <li>Check the type of the current <code>element</code> in the loop.
+        <ul>
+          <li>If not an array <code>→</code> Add element to <code>output</code>.</li>
+          <li>If an array <code>→</code>
+            <ul>
+              <li>Recursively pass element to self to get <code>recursive_output</code>.</li>
+              <li>Loop through <code>recursive_output</code> elements and add each to <code>output</code>.</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Return <code>output</code>.</li>
+</ol>
+
+<h3 id="code">Code</h3>
+<pre><code class="language-javascript">/**
+*
+* Flattens an array
+*
+* @param {array} contents - Input array
+* @return {array} output - Flattened array
+*
+**/
+function array_flatten(contents) {
+
+  // the output array we will return
+  var output = [];
+  
+  // iterate over contents
+  for(var i = 0; i &lt; contents.length; i++) {
+    
+    // check if element is an array or not
+    if(!Array.isArray(contents[i])) {
+
+      // element is not an array - push to output array
+      output.push(contents[i]);
+
+    } else {
+
+      // element is an array - call array_flattten on element recursively
+      var recursive_output = array_flatten(contents[i]);
+      
+      for(var o = 0; o &lt; recursive_output.length; o++) {
+        
+        output.push(recursive_output[o]);
+        
+      };
+      
+    };
+    
+  };
+  
+  // return flattened array
+  return output;
+  
+};
+</code></pre>
+
+<h2 id="libraries">Libraries</h2>
+<p>The following libraries have functions that solve this puzzle:</p>
+
+<ul>
+  <li><a href="http://lodash.com/docs#flatten">Lo-Dash’s flatten function</a> - <code>_.flatten</code> flattens a nested array. In addition you can choose to only flatten the first level or pass elements to a callback before flattening.</li>
+</ul>
+
+
+</div>
+<hr>
+<div class="contributors">
+<h2>Contributors</h2>
+  
+  <a href="http://github.com/dhruvbhatia" target="blank">dhruvbhatia</a>
+  
+</div>
+
+    </div>
+
+  </div>
+
+  <div id="footer">
+
+    <div class="row">
+      Frontend School
+    </div>
+
+  </div>
+
+  <script type="text/javascript" src="/frontend-school/assets/js/app.min.js"></script>
+
+</body>
+
+</html>

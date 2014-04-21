@@ -1,0 +1,86 @@
+---
+layout: default
+title: Frontend School - Contribute
+---
+
+<div class="row">
+<div class="small-3 large-3 columns">
+<ul class="side-nav">
+  <li><a href="#how-to-contribute">How to Contribute</a></li>
+  <li><a href="#">Link 2</a></li>
+  <li><a href="#">Link 3</a></li>
+  <li><a href="#">Link 4</a></li>
+</ul>
+</div>
+
+<div class="small-9 large-9 columns">
+<a name="how-to-contribute"></a>
+<h2>How to Contribute</h2>
+<p>
+Since Frontend School is an open-source repository, anyone can freely contribute towards improving the site!
+
+There are two key ways in which you can contribute:
+<ol>
+  <li><strong>Puzzle Writer:</strong> Add new JavaScript/HTML/CSS puzzles to the repo in order to grow the site's content.</li>
+<li><strong>Gardener:</strong> This involves maintaining the repo. Tasks include reviewing/improving existing puzzles, ensuring tag names and reference links are consistent, suggesting ideas to improve the user experience of the site etc.</li>
+</ol>
+
+I openly welcome any contributions you may have!
+
+</p>
+
+<div class="panel callout radius">
+For all contributions, please <a href="https://github.com/dhruvbhatia/frontend-school/pulls" target="blank">add a new Pull Request via GitHub.</a>
+</div>
+
+<h2>Adding Puzzles</h2>
+
+This site is powered by Jekyll and all puzzles are written in Markdown. Each puzzle contains the following common elements:
+<br>
+<br>
+
+<h3>File Name</h3>
+Each puzzle should be saved within the <code>/_posts/</code> directory and have a file name using the following convention: <code>YYYY-MM-DD-title.markdown</code>
+<br>
+<br>
+
+<h3>Meta Data</h3>
+Every puzzle's Markdown file begins with a few meta fields. These should be populated as follows:
+
+<pre>
+<code class="language-markdown">
+---
+layout: puzzle <em>(this never changes)</em>
+title:  "Puzzle Title" <em>(a short title for the puzzle)</em>
+date:   YYYY-MM-DD <em>(the date of the puzzle - used to sort new puzzles on the homepage)</em>
+categories: [JavaScript] <em>(an array of the languages this puzzle relates to. Choices are JavaScript, CSS, or HTML)</em>
+tags: [tag 1, tag 2] <em>(an array of tags)</em>
+difficulty: Intermediate <em>(an arbitrary rating of how difficult this puzzle is. Choices are Easy, Intermediate or Hard)</em>
+short_description: Write a function that does x. <em>(a short description of what the puzzle's challenge is)</em>
+github_contributors: [dhruvbhatia] <em>(an array of the usernames of GitHub contributors)</em>
+---
+</code>
+</pre>
+<br>
+<br>
+
+<h3>Sections</h3>
+
+The Markdown file then contains the following sections:
+
+<ul>
+  <li><strong>Puzzle:</strong> A description of what the puzzle's challenge is.</li>
+  <li><strong>Examples (if applicable):</strong> Examples with the expected OUTPUT, given an INPUT. This section can be omitted if the puzzle only has one right answer (e.g. puzzles that are theoretical rather than practical).</li>
+  <li><strong>Solution:</strong> Contains the best-practice accepted solution to the puzzle. For programmatic puzzles, please include a <code>How It Works</code> section before your actual <code>Code</code> section which breaks down the key steps. <em>Note: If your solution is formatted using JavaScript, the function will automatically be added to the current window so the user can experiment with it in their browser's console.</em></li>
+  <li><strong>Alternative Solutions (if applicable):</strong> If there is more than one way to tackle the puzzle at hand, you can list additional solutions here.</li>
+  <li><strong>Libraries (if applicable):</strong> If there are any open-source libraries that tackle this puzzle, feel free to list them here.</li>
+  <li><strong>References (if applicable):</strong> Any other useful links pertaining to the puzzle.</li>
+</ul>
+
+<h3>Contributors</h3>
+The contributors section is automatically added to the bottom of each puzzle. Be sure to include your GitHub username in the <code>github_contributers</code> meta property of the puzzle so that you receive the due credit!
+
+
+</div>
+
+</div>

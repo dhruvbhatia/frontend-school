@@ -3,7 +3,7 @@
 "foundation",
 "prismjs.min.css";
 
-.tag {
+.language {
   @include label(
     // This options sets label padding
     $padding:7px 16px 9px,
@@ -11,6 +11,19 @@
     $text-size:14px,
     // This option sets label background-color
     $bg:#2ba6cb,
+    // This option sets the radius of the label
+    $radius:4px
+  );
+};
+
+.tag {
+  @include label(
+    // This options sets label padding
+    $padding:7px 16px 9px,
+    // This option sets label text-size
+    $text-size:14px,
+    // This option sets label background-color
+    $bg:#e7e7e7,
     // This option sets the radius of the label
     $radius:4px
   );

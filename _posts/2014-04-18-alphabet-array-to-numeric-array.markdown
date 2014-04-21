@@ -2,10 +2,10 @@
 layout: puzzle
 title:  "Alphabet Array to Numeric Array"
 date:   2014-04-18
-categories: puzzles
-tags: [JavaScript, Type Casting, Array, Number, Utility]
+categories: [JavaScript, CSS]
+tags: [Type Casting, Array, Number, Utility]
 difficulty: Intermediate
-short_description: Write a function that transforms an alphabetical array to a numeric array.
+short_description: Write a function that transforms an alphabetical array to a numerical array.
 github_contributors: [dhruvbhatia]
 ---
 
@@ -21,8 +21,6 @@ github_contributors: [dhruvbhatia]
 // OUTPUT
 [3, 4, 1, 26, 27]; // A is the 1st letter, Z is the 26th letter, AA is the 27th letter etc.
 ~~~
-
-<a name="solution"></a>
 
 ## Solution
 
